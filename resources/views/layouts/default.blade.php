@@ -15,7 +15,7 @@
             <ul class="nav navbar-nav navbar-right">
                 @auth
                     <li>
-                        {{ Auth::user()->name }}
+                        <a href="{{ route('profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     </li>
                     <li>
                         <a href="{{ route('logout') }}">ログアウト</a>

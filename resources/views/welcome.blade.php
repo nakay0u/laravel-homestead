@@ -22,10 +22,9 @@
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            <a href="{{ route('tweets.index') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Twitter風アプリ</a>
-            
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    <a href="{{ route('tweets.index') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Twitter風アプリ</a>
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                     @else

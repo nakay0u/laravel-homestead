@@ -13,12 +13,12 @@
             <p>{{ $tweet->created_at }}</p>
         </div>
     </div>
-    @auth
+    @if(Auth::user()->id === $tweet->user->id)
         <a href="{{ route('tweets.edit', $tweet->id) }}" class="btn btn-primary">更新</a>
         <form action="{{ route('tweets.destroy', $tweet->id) }}" method="post">
             @method('DELETE')
             @csrf
             <button type="submit" class="btn btn-danger">削除</button>
         </form>
-    @endauth
+    @endif
 @endsection

@@ -11,7 +11,7 @@
             <a class="btn btn-primary" href="{{ route('tweets.create') }}">ツイート新規投稿</a>    
             @endauth
         </div>
-        
+
         <div class="col-md-10">
             @if(Session::has('flash_message'))
                 <div class="alert alert-success">
@@ -21,10 +21,11 @@
             <table class="table">
                 <tbody>
                     @foreach($tweets as $tweet)
-                        <tr>
-                            <td>{{ $tweet->body }}</td>
-                            <td class="text-right"><a href="{{ route('tweets.show', $tweet->id) }}">詳細</a></td>
-                        </tr>
+                    <tr>
+                        <td>{{ $tweet->body }}</td>
+                        <td class="text-right">{{ $tweet->user->name }}</td>
+                        <td class="text-right"><a href="{{ route('tweets.show', $tweet->id) }}">詳細</a></td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>

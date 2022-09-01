@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TweetController;
+use App\Http\Controllers\UserProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ Route::get('/', function () {
 });
 
 Route::resource('/tweets', TweetController::class);
+
+Route::get('/user/{id}/profile', [UserProfileController::class, 'show'])
+            ->name('profile');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

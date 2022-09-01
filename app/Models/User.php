@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Tweet');
     }
+
+    public function userProfile()
+    {
+        return $this->hasOne('App\Models\UserProfile');
+    }
 }
