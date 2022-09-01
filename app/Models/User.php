@@ -44,11 +44,11 @@ class User extends Authenticatable
 
     public function tweets()
     {
-        return $this->hasMany('App\Models\Tweet');
+        return $this->hasMany(Tweet::class);
     }
 
     public function userProfile()
     {
-        return $this->hasOne('App\Models\UserProfile');
+        return $this->hasOne(UserProfile::class);
     }
 }

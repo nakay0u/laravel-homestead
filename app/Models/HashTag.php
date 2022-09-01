@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserProfile extends Model
+class HashTag extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id', 'created_at'];
+    protected $fillable = ['name'];
 
-    public function user()
+    public function tweets()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(Tweet::class);
     }
 }

@@ -21,6 +21,9 @@ Route::get('/', function () {
 
 Route::resource('/tweets', TweetController::class);
 
+Route::get('/tweets/hash_tag/{id}', [TweetController::class, 'showByHashTag'])
+            ->name('hash_tags');
+
 Route::get('/user/{id}/profile', [UserProfileController::class, 'show'])
             ->name('profile');
 

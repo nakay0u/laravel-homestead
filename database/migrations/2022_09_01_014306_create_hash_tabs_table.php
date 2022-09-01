@@ -15,7 +15,18 @@ return new class extends Migration
     {
         Schema::create('hash_tags', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 255);
             $table->timestamps();
+        });
+
+        Schema::create('hash_tag_tweet', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('hash_tag_id');
+            $table->unsignedBigInteger('tweet_id');
+            $table->timestamps();
+
+            $table->foreign('tweet_id')->references('id')->on('tweets');
+            $table->foreign('hash_tag_id')->references('id')->on('hash_tags');
         });
     }
 
@@ -27,5 +38,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('hash_tags');
+        Schema::dropIfExists('hash_tag_tweet');
     }
 };
